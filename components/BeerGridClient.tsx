@@ -13,7 +13,7 @@ const sortOptions = [
   { label: 'Rating', value: 'rating' },
 ]
 
-export default function BeerGridClient({ beers }: { beers: Beer[] }) {
+export default function BeerGridClient({ beers, onRemoveCustom, }: { beers: Beer[]; onRemoveCustom?: (id: string) => void }) {
   const [sortKey, setSortKey] = useState<string>('name')
   const [sortDir, setSortDir]   = useState<'asc'|'desc'>('desc')
 

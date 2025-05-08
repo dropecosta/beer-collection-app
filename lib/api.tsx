@@ -20,7 +20,6 @@ export async function getBeers(
       b.image_url ||
       `${BASE}/images/${String(b.id).padStart(3, '0')}.png`,
     notes: b.description,
-    rating: b.abv ?? 0,
     abv: b.abv,
     ibu: b.ibu,
     ebc: b.ebc,
@@ -31,8 +30,25 @@ export async function getBeers(
 
 export async function getBeerById(id: string): Promise<Beer> {
   const res = await fetch(`${BASE}/beers/${id}`)
-  if (!res.ok) throw new Error('Erro ao buscar cerveja da Punk API')
-  const [b] = await res.json()
+  if (!res.ok) {
+    return {
+      id,
+      name: '',
+      type: '',
+      year: 0,
+      image: '/fallback.webp',
+      notes: '',
+      abv: 0,
+      ibu: 0,
+      ebc: 0,
+      foodPairing: [],
+      brewersTips: '',
+      custom: true,
+    }
+  }
+
+  const data = await res.json()
+  const b = Array.isArray(data) ? data[0] : data
   return {
     id: String(b.id),
     name: b.name,
@@ -42,15 +58,10 @@ export async function getBeerById(id: string): Promise<Beer> {
       b.image_url ||
       `${BASE}/images/${String(b.id).padStart(3, '0')}.png`,
     notes: b.description,
-    rating: b.abv ?? 0,
     abv: b.abv,
     ibu: b.ibu,
     ebc: b.ebc,
     foodPairing: b.food_pairing,
     brewersTips: b.brewers_tips,
   }
-}
-
-export async function createBeer(_: Omit<Beer, 'id'>): Promise<Beer> {
-  throw new Error('Operação não suportada pela Punk API')
 }
