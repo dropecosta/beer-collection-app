@@ -38,7 +38,7 @@ export default function HomePage() {
   const beers = [...custom, ...fetched]
 
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen p-4 bg-[#f4f4f4]">
       {loading ? (
         <p className="text-center py-20 text-gray-600">Carregando...</p>
       ) : (

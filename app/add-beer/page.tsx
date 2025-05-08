@@ -3,18 +3,37 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Beer } from '@/types/beer'
+import {
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
+import { Container } from '@/components/ui/container'
 
 export default function AddBeerPage() {
   const router = useRouter()
   const [form, setForm] = useState({
-    name: '', type: '', year: '', notes: '',
-    abv: '', ibu: '', ebc: ''
+    name: '',
+    type: '',
+    year: '',
+    notes: '',
+    abv: '',
+    ibu: '',
+    ebc: '',
   })
 
-  const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setForm(f => ({ ...f, [e.target.name]: e.target.value }))
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setForm(prev => ({ ...prev, [name]: value }))
+  }
 
-  const onSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const id = Date.now().toString()
     const newBeer: Beer = {
@@ -27,7 +46,7 @@ export default function AddBeerPage() {
       abv: parseFloat(form.abv) || 0,
       ibu: parseFloat(form.ibu) || 0,
       ebc: parseFloat(form.ebc) || 0,
-      custom: true
+      custom: true,
     }
     const raw = localStorage.getItem('customBeers') || '[]'
     const arr: Beer[] = JSON.parse(raw)
@@ -37,51 +56,157 @@ export default function AddBeerPage() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
-      <h2 className="text-xl font-semibold mb-4">Adicionar Cerveja</h2>
-      <form onSubmit={onSubmit} className="space-y-4">
-        <input
-          name="name" required
-          placeholder="Nome"
-          value={form.name} onChange={handle}
-          className="w-full px-3 py-2 border rounded"
+    <Container className="py-10">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-8 max-w-3xl mx-auto py-10"
+      >
+        <FormField
+          name="name"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>Nome</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <input
-          name="type" required
-          placeholder="Tipo (tagline)"
-          value={form.type} onChange={handle}
-          className="w-full px-3 py-2 border rounded"
+
+        <FormField
+          name="type"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>Tipo</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="type"
+                  value={form.type}
+                  onChange={handleChange}
+                  placeholder="Lager, Ale, Pilsen…"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <input
-          name="year" required type="number"
-          placeholder="Ano (YYYY)"
-          value={form.year} onChange={handle}
-          className="w-full px-3 py-2 border rounded"
+
+        <FormField
+          name="year"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>Ano</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="year"
+                  type="number"
+                  value={form.year}
+                  onChange={handleChange}
+                  placeholder="YYYY"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <textarea
-          name="notes" required rows={3}
-          placeholder="Descrição"
-          value={form.notes} onChange={handle}
-          className="w-full px-3 py-2 border rounded"
+
+        <FormField
+          name="notes"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>Descrição</FormLabel>
+              <FormControl>
+                <Textarea
+                  {...field}
+                  name="notes"
+                  value={form.notes}
+                  onChange={handleChange}
+                  placeholder="Descreva sua cerveja…"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-        <div className="grid grid-cols-3 gap-2">
-          <input name="abv" placeholder="ABV" value={form.abv} onChange={handle}
-            className="px-2 py-1 border rounded"
-          />
-          <input name="ibu" placeholder="IBU" value={form.ibu} onChange={handle}
-            className="px-2 py-1 border rounded"
-          />
-          <input name="ebc" placeholder="EBC" value={form.ebc} onChange={handle}
-            className="px-2 py-1 border rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-        >
+
+        <FormField
+          name="abv"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>ABV</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="abv"
+                  value={form.abv}
+                  onChange={handleChange}
+                  placeholder="Alcohol by Volume"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          name="ibu"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>IBU</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="ibu"
+                  value={form.ibu}
+                  onChange={handleChange}
+                  placeholder="International Bitterness Units"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          name="ebc"
+          render={({ field }: any) => (
+            <FormItem>
+              <FormLabel>EBC</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  name="ebc"
+                  value={form.ebc}
+                  onChange={handleChange}
+                  placeholder="European Brewery Convention"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button type="submit" className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm font-medium white border-gray-300 hover:bg-gray cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center justify-center">
           Adicionar
-        </button>
+        </Button>
       </form>
-    </div>
+    </Container>
   )
 }
+
+export interface FormFieldProps {
+    name: string
+    render?: (args: { field: any }) => React.ReactNode
+    children?: React.ReactNode
+  }
+  export function FormField({ render, children }: FormFieldProps) {
+    return <>{render ? render({ field: {} }): children}</>
+  }

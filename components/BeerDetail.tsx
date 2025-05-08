@@ -1,13 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useRouter, useParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { Beer } from '@/types/beer'
 
 export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
   const { id } = useParams()
-  const router = useRouter()
   const [beer, setBeer] = useState<Beer>(serverBeer)
   const [isCustom, setIsCustom] = useState(false)
   const [imgSrc, setImgSrc] = useState(serverBeer.image)
@@ -23,24 +22,8 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
     }
   }, [id])
 
-  const handleRemove = () => {
-    const raw = localStorage.getItem('customBeers') || '[]'
-    const customs: Beer[] = JSON.parse(raw)
-    const updated = customs.filter(b => b.id !== id)
-    localStorage.setItem('customBeers', JSON.stringify(updated))
-    router.push('/')
-  }
-
   return (
     <div className="mx-auto max-w-[1280px] p-8 bg-white rounded-lg shadow-md my-8">
-      {isCustom && (
-        <button
-          onClick={handleRemove}
-          className="mb-4 px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition"
-        >
-          Remover esta cerveja
-        </button>
-      )}
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/3 flex justify-center">
           <Image
@@ -52,20 +35,27 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
             onError={() => setImgSrc('/fallback.webp')}
           />
         </div>
+
         <div className="md:w-2/3 space-y-4">
           <h1 className="text-3xl font-bold">{beer.name}</h1>
-          <p className="text-sm text-gray-500 uppercase font-semibold">{beer.type}</p>
+          <p className="text-sm text-gray-500 uppercase font-semibold">
+            {beer.type}
+          </p>
           <p className="text-gray-700">{beer.notes}</p>
+
           <div className="flex flex-wrap gap-4 text-sm text-gray-600">
             <span>ABV: {beer.abv ?? '–'}%</span>
-            <span>IBU: {beer.ibu ?? '–'}</span>
-            <span>EBC: {beer.ebc ?? '–'}</span>
+            <span>IBU: {beer.ibu  ?? '–'}</span>
+            <span>EBC: {beer.ebc  ?? '–'}</span>
             {'ph' in beer && <span>pH: {(beer as any).ph}</span>}
             {'srm' in beer && <span>SRM: {(beer as any).srm}</span>}
             {'attenuation_level' in beer && (
-              <span>Atenuação: {(beer as any).attenuation_level}%</span>
+              <span>
+                Atenuação: {(beer as any).attenuation_level}%
+              </span>
             )}
           </div>
+
           {beer.foodPairing && (
             <div>
               <h2 className="font-medium">Harmoniza com:</h2>
@@ -76,6 +66,7 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
               </ul>
             </div>
           )}
+
           {beer.brewersTips && (
             <p className="text-sm text-gray-500 italic">
               Dica do cervejeiro: {beer.brewersTips}

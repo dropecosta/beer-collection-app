@@ -1,29 +1,45 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from 'next/font/google'
+import NavButton from '@/components/NavButton'
+import './globals.css'
 
 export const metadata = {
   title: 'Beer Collection App',
   description: 'Organize and explore your favorite beers',
 }
 
-export default function RootLayout({ 
-  children }: { children: ReactNode }) {
+const inter = Inter({ subsets: ['latin'] })
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-    <body className={`${inter.className} bg-gray-100`}>
-      <header className="p-4 shadow-md bg-yellow-100 dark:bg-zinc-800">
-        <h1 className="text-2xl font-bold text-center">🍺 Beer Collection App</h1>
-      </header>
-      <main>
-        {children}
-      </main>
-      <footer className="p-4 bg-yellow-100 dark:bg-zinc-800 text-center pb-[10px]">
-        <p className="text-sm pt-30">© 2025 Beer Collection App - Desenvolvido por Pedro Reis</p>
-      </footer>
-    </body>
-  </html>
+      <body className={inter.className}>
+        <header className="p-[20px]">
+          <h1 className="text-center font-extrabold text-[36px] uppercase">
+            🍺 Beer Collection App
+          </h1>
+          <div className="flex justify-center mt-2">
+            <h2 className="text-3xl md:text-2xl font-medium">
+              Organize e explore suas cervejas favoritas
+            </h2>
+          </div>
+          <div className="mx-auto max-w-[1280px] w-full flex justify-center items-center gap-4 mt-[20px]">
+            <NavButton />
+          </div>
+        </header>
+        <main>{children}</main>
+        <footer className="p-[10px] bg-yellow-100 dark:bg-zinc-800 text-center">
+          <p className="text-sm">
+            © 2025 Beer Collection App - Desenvolvido por{' '}
+            <a
+              href="mailto:dropecosta@gmail.com"
+              className="text-blue-600 underline pl-1"
+            >
+              Pedro Reis
+            </a>
+          </p>
+        </footer>
+      </body>
+    </html>
   )
 }
