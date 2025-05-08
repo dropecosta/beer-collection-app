@@ -16,11 +16,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={inter.className}>
         <header className="p-[20px]">
           <h1 className="text-center font-extrabold text-[36px] uppercase">
-            🍺 Beer Collection App
+            Beer Collection App
           </h1>
           <div className="flex justify-center mt-2">
-            <h2 className="text-3xl md:text-2xl font-medium">
-              Organize e explore suas cervejas favoritas
+            <h2 className="text-3xl md:text-2xl font-medium sm:flex flex-col text-center text-gray-700 dark:text-gray-200">
+              Organize and explore your favorite beers
             </h2>
           </div>
           <div className="mx-auto max-w-[1280px] w-full flex justify-center items-center gap-4 mt-[20px]">
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main>{children}</main>
         <footer className="p-[10px] bg-yellow-100 dark:bg-zinc-800 text-center">
           <p className="text-sm">
-            © 2025 Beer Collection App - Desenvolvido por{' '}
+            © 2025 Beer Collection App - Developed by{' '}
             <a
               href="mailto:dropecosta@gmail.com"
               className="text-blue-600 underline pl-1"

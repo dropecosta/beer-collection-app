@@ -40,7 +40,9 @@ export default function HomePage() {
   return (
     <main className="min-h-screen p-4 bg-[#f4f4f4]">
       {loading ? (
-        <p className="text-center py-20 text-gray-600">Carregando...</p>
+        <div className="flex items-center justify-center min-h-screen">
+          <p className="text-gray-600 text-lg">Loading...</p>
+        </div>
       ) : (
         <>
           <BeerGridClient  

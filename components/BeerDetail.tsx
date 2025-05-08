@@ -51,14 +51,14 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
             {'srm' in beer && <span>SRM: {(beer as any).srm}</span>}
             {'attenuation_level' in beer && (
               <span>
-                Atenuação: {(beer as any).attenuation_level}%
+                Mitigation: {(beer as any).attenuation_level}%
               </span>
             )}
           </div>
 
           {beer.foodPairing && (
             <div>
-              <h2 className="font-medium">Harmoniza com:</h2>
+              <h2 className="font-medium">Harmonizes with:</h2>
               <ul className="list-disc list-inside text-gray-600">
                 {beer.foodPairing.map((f, i) => (
                   <li key={i}>{f}</li>
@@ -69,7 +69,7 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
 
           {beer.brewersTips && (
             <p className="text-sm text-gray-500 italic">
-              Dica do cervejeiro: {beer.brewersTips}
+              Brewer's tip: {beer.brewersTips}
             </p>
           )}
         </div>

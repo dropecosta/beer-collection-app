@@ -65,7 +65,7 @@ export default function AddBeerPage() {
           name="name"
           render={({ field }: any) => (
             <FormItem>
-              <FormLabel>Nome</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input
                   {...field}
@@ -83,7 +83,7 @@ export default function AddBeerPage() {
           name="type"
           render={({ field }: any) => (
             <FormItem>
-              <FormLabel>Tipo</FormLabel>
+              <FormLabel>Type</FormLabel>
               <FormControl>
                 <Input
                   {...field}
@@ -102,7 +102,7 @@ export default function AddBeerPage() {
           name="year"
           render={({ field }: any) => (
             <FormItem>
-              <FormLabel>Ano</FormLabel>
+              <FormLabel>Year</FormLabel>
               <FormControl>
                 <Input
                   {...field}
@@ -122,14 +122,14 @@ export default function AddBeerPage() {
           name="notes"
           render={({ field }: any) => (
             <FormItem>
-              <FormLabel>Descrição</FormLabel>
+              <FormLabel>Description</FormLabel>
               <FormControl>
                 <Textarea
                   {...field}
                   name="notes"
                   value={form.notes}
                   onChange={handleChange}
-                  placeholder="Descreva sua cerveja…"
+                  placeholder="Write a description of the beer"
                 />
               </FormControl>
               <FormMessage />
@@ -195,7 +195,7 @@ export default function AddBeerPage() {
         />
 
         <Button type="submit" className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm font-medium white border-gray-300 hover:bg-gray cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center justify-center">
-          Adicionar
+          Add Beer
         </Button>
       </form>
     </Container>

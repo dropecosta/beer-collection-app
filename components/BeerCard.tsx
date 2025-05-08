@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '@/components/ui/card'
+import { Card, CardHeader, CardContent, CardFooter, CardTitle } from '@/components/ui/card'
 import { Beer } from '@/types/beer'
 
 export default function BeerCard({ beer, onRemove }: { beer: Beer; onRemove?: (id: string) => void }) {

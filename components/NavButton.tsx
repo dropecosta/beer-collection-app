@@ -40,7 +40,7 @@ export default function NavButton() {
             className="w-[200px] h-[30px] text-sm !text-[#FFF] hover:!text-[#FFF] mr-[10px]"
             onClick={handleRemove}
           >
-            Remover item
+            Remove item
           </Button>
         )}
         <Button
@@ -48,7 +48,7 @@ export default function NavButton() {
           className="w-[200px] h-[30px] text-sm"
           onClick={() => router.push('/')}
         >
-          Voltar
+          Back
         </Button>
       </div>
     )
@@ -61,7 +61,7 @@ export default function NavButton() {
           variant="default"
           className="w-[200px] h-[30px] text-sm !text-white border-gray-300 hover:bg-gray-100 hover:!text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
-          {isAddBeer ? 'Voltar' : 'Adicionar nova cerveja'}
+          {isAddBeer ? 'Back' : 'Add new Beer'}
         </Button>
       </Link>
     </div>

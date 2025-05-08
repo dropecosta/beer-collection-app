@@ -13,11 +13,11 @@ export default function Pagination({ page }: { page: number }) {
               href={`/?page=${page - 1}`}
               className="px-4 py-2 bg-white rounded-l hover:bg-gray-50 transition"
             >
-              ← Anterior
+              ← Previous
             </Link>
           ) : (
             <span className="px-4 py-2 bg-gray-100 text-gray-400 rounded-l cursor-not-allowed">
-              ← Anterior
+              ← Previous
             </span>
           )}
         </li>
@@ -31,7 +31,7 @@ export default function Pagination({ page }: { page: number }) {
             href={`/?page=${page + 1}`}
             className="px-4 py-2 bg-white rounded-r hover:bg-gray-50 transition"
           >
-            Próxima →
+            Next →
           </Link>
         </li>
       </ul>
