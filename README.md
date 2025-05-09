@@ -76,11 +76,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📐 UI / UX
 
-![Home Page](./public/images/homepage.png)
+![Home Page](![image](https://github.com/user-attachments/assets/af0d67d9-fc51-464a-8046-2a801ae7f2de))
+![Home Page - Darkmode](![image](https://github.com/user-attachments/assets/a59ba383-102f-4bc1-9916-3d7493306486))
 *Home page with sorting and dark mode*  
 
-![Detail View](./public/images/detail-view.png)
-*Beer detail page with stats and actions*  
+![Detail View](https://github.com/user-attachments/assets/c1ae1993-6494-4176-9119-36904cf142ae)
+*Beer detail page with stats and actions*
+
+![Add new beer form](https://github.com/user-attachments/assets/efba3bda-a23a-419b-90dc-5d2073f5fdc9)
+*Feature to add new beers to catalos*
+
 
 ---
 
