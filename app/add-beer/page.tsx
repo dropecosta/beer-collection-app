@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Beer } from '@/types/beer'
 import {
-  FormField,
   FormItem,
   FormLabel,
   FormControl,
@@ -62,110 +61,96 @@ export default function AddBeerPage() {
         onSubmit={handleSubmit}
         className="space-y-8 max-w-3xl mx-auto py-10"
       >
-        <FormField name="name">
-          <FormItem>
-            <FormLabel>Name</FormLabel>
-            <FormControl>
-              <Input
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>Name</FormLabel>
+          <FormControl>
+            <Input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="type">
-          <FormItem>
-            <FormLabel>Type</FormLabel>
-            <FormControl>
-              <Input
-                name="type"
-                value={form.type}
-                onChange={handleChange}
-                placeholder="Lager, Ale, Pilsen…"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>Type</FormLabel>
+          <FormControl>
+            <Input
+              name="type"
+              value={form.type}
+              onChange={handleChange}
+              placeholder="Lager, Ale, Pilsen…"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="year">
-          <FormItem>
-            <FormLabel>Year</FormLabel>
-            <FormControl>
-              <Input
-                name="year"
-                type="number"
-                value={form.year}
-                onChange={handleChange}
-                placeholder="YYYY"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>Year</FormLabel>
+          <FormControl>
+            <Input
+              name="year"
+              type="number"
+              value={form.year}
+              onChange={handleChange}
+              placeholder="YYYY"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="notes">
-          <FormItem>
-            <FormLabel>Description</FormLabel>
-            <FormControl>
-              <Textarea
-                name="notes"
-                value={form.notes}
-                onChange={handleChange}
-                placeholder="Write a description of the beer"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>Description</FormLabel>
+          <FormControl>
+            <Textarea
+              name="notes"
+              value={form.notes}
+              onChange={handleChange}
+              placeholder="Write a description of the beer"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="abv">
-          <FormItem>
-            <FormLabel>ABV</FormLabel>
-            <FormControl>
-              <Input
-                name="abv"
-                value={form.abv}
-                onChange={handleChange}
-                placeholder="Alcohol by Volume"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>ABV</FormLabel>
+          <FormControl>
+            <Input
+              name="abv"
+              value={form.abv}
+              onChange={handleChange}
+              placeholder="Alcohol by Volume"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="ibu">
-          <FormItem>
-            <FormLabel>IBU</FormLabel>
-            <FormControl>
-              <Input
-                name="ibu"
-                value={form.ibu}
-                onChange={handleChange}
-                placeholder="International Bitterness Units"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>IBU</FormLabel>
+          <FormControl>
+            <Input
+              name="ibu"
+              value={form.ibu}
+              onChange={handleChange}
+              placeholder="International Bitterness Units"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
-        <FormField name="ebc">
-          <FormItem>
-            <FormLabel>EBC</FormLabel>
-            <FormControl>
-              <Input
-                name="ebc"
-                value={form.ebc}
-                onChange={handleChange}
-                placeholder="European Brewery Convention"
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+        <FormItem>
+          <FormLabel>EBC</FormLabel>
+          <FormControl>
+            <Input
+              name="ebc"
+              value={form.ebc}
+              onChange={handleChange}
+              placeholder="European Brewery Convention"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
 
         <Button 
           type="submit" 
