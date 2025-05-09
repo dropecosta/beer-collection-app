@@ -17,7 +17,7 @@ export default function AddBeerPage() {
     ebc: '',
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target
     setForm((prevForm) => ({ ...prevForm, [name]: value }))
   }
