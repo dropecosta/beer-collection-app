@@ -75,12 +75,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ---
 
 ## 📐 UI / UX
-
-![Home Page](./public/images/homepage.png)
+![Home Page](https://github.com/user-attachments/assets/a123f732-b508-4ba5-b84f-4438a8897ccb)
+![Home Page - Darkmode](https://github.com/user-attachments/assets/a8f759cb-98f2-40e7-bd2c-6ffaebe73bb1)
 *Home page with sorting and dark mode*  
 
-![Detail View](./public/images/detail-view.png)
-*Beer detail page with stats and actions*  
+![Detail View](https://github.com/user-attachments/assets/c1ae1993-6494-4176-9119-36904cf142ae)
+*Beer detail page with stats and actions*
+
+![Add new beer form](https://github.com/user-attachments/assets/efba3bda-a23a-419b-90dc-5d2073f5fdc9)
+*Feature to add new beers to catalog*
+
 
 ---
 
