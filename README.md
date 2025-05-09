@@ -83,7 +83,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 *Beer detail page with stats and actions*
 
 ![Add new beer form](https://github.com/user-attachments/assets/efba3bda-a23a-419b-90dc-5d2073f5fdc9)
-*Feature to add new beers to catalos*
+*Feature to add new beers to catalog*
 
 
 ---
