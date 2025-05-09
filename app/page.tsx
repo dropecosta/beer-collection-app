@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import BeerGridClient from '@/components/BeerGridClient'
+import BeerGridClient from '@/components/BeerGridClient/BeerGridClient'
 import Pagination from '@/components/Pagination'
 import { Beer } from '@/types/beer'
 

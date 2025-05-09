@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
-import NavButton from '@/components/NavButton'
+import NavButton from '@/components/NavButton/NavButton'
 import './globals.css'
 
 export const metadata = {

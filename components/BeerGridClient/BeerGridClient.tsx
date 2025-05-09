@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react'
 import { Beer } from '@/types/beer'
-import BeerGrid from './BeerGrid'
-import { Button } from './ui/button'
+import BeerGrid from '../BeerGrid/BeerGrid'
+import { Button } from '../ui/button'
 import {
   Select,
   SelectContent,

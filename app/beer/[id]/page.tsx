@@ -1,5 +1,5 @@
 import { getBeerById } from '@/lib/api'
-import BeerDetail from '@/components/BeerDetail'
+import BeerDetail from '@/components/BeerDetail/BeerDetail'
 
 export default async function BeerDetailPage({
   params,

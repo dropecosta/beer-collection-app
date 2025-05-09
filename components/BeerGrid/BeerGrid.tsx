@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { Beer } from '@/types/beer'
-import BeerCard from './BeerCard'
-import { Container } from './ui/container'
-import { Grid } from './ui/grid'
+import BeerCard from '../BeerCard/BeerCard'
+import { Container } from '../ui/container'
+import { Grid } from '../ui/grid'
 
 export default function BeerGrid({ beers }: { beers: Beer[] }) {
     return (
