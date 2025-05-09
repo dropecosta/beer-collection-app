@@ -1,12 +1,14 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { Beer } from '@/types/beer'
 
 export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
   const { id } = useParams()
+  const router = useRouter()
   const [beer, setBeer] = useState<Beer>(serverBeer)
   const [isCustom, setIsCustom] = useState(false)
   const [imgSrc, setImgSrc] = useState(serverBeer.image)
@@ -23,9 +25,9 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
   }, [id])
 
   return (
-    <div className="mx-auto max-w-[1280px] p-8 bg-white rounded-lg shadow-md my-8">
+    <div className="mx-auto max-w-[1280px] p-4 sm:p-6 md:p-8 bg-white rounded-lg shadow-md my-8 px-[40px]">
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="md:w-1/3 flex justify-center">
+        <div className="md:w-1/3 flex justify-center h-[300px]">
           <Image
             src={imgSrc}
             alt={beer.name}
@@ -37,13 +39,13 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
         </div>
 
         <div className="md:w-2/3 space-y-4">
-          <h1 className="text-3xl font-bold">{beer.name}</h1>
-          <p className="text-sm text-gray-500 uppercase font-semibold">
+          <h1 className="text-[32px] mb-[4px] font-bold">{beer.name}</h1>
+          <p className="text-sm text-gray-500 uppercase font-semibold  mb-[20px]">
             {beer.type}
           </p>
-          <p className="text-gray-700">{beer.notes}</p>
+          <p className="text-gray-700  mb-[20px]">{beer.notes}</p>
 
-          <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+          <div className="flex flex-wrap gap-4 text-sm text-gray-600  mb-[20px] gap-[18px]">
             <span>ABV: {beer.abv ?? '–'}%</span>
             <span>IBU: {beer.ibu  ?? '–'}</span>
             <span>EBC: {beer.ebc  ?? '–'}</span>
@@ -73,6 +75,28 @@ export default function BeerDetail({ beer: serverBeer }: { beer: Beer }) {
             </p>
           )}
         </div>
+      </div>
+      <div className="mt-[30px] flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-4">
+        <Button 
+          className="w-[200px] h-[50px] mt-[50px] mb-[5px] text-sm bg-primary text-[#FFF] hover:opacity-90 dark:bg-primary dark:text-[#000]"
+          onClick={() => router.back()}>
+          Back
+        </Button>
+        {isCustom && (
+          <Button 
+            variant="destructive"
+            className="w-[200px] h-[50px] mt-[10px] text-sm bg-[#b20e0e] text-[#FFF] hover:opacity-90 dark:bg-bg-[#b20e0e]"
+            onClick={() => {
+            const raw = localStorage.getItem('customBeers') || '[]'
+            const arr: Beer[] = JSON.parse(raw)
+            const filtered = arr.filter(b => b.id !== id)
+            localStorage.setItem('customBeers', JSON.stringify(filtered))
+            router.push('/')
+          }}
+          >
+            Remove Item
+          </Button>
+        )}
       </div>
     </div>
   )

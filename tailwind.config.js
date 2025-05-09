@@ -8,6 +8,20 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./components/ui/**/*.{ts,tsx}"
   ],
-  theme: { extend: {} },
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        card: 'var(--card)',
+        border: 'var(--border)',
+        // ... other color variables
+      },
+    },
+  },
   plugins: [forms, lineClamp],
+
 }

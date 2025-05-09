@@ -21,14 +21,14 @@ export default function NavButton() {
   }
 
   useEffect(() => {
-        if (isDetail) {
-          const id = path.split('/')[2]
-          const raw = localStorage.getItem('customBeers') || '[]'
-          const arr: any[] = JSON.parse(raw)
-          setIsCustom(arr.some(b => b.id === id))
-        } else {
-          setIsCustom(false)
-        }
+    if (isDetail) {
+      const id = path.split('/')[2]
+      const raw = localStorage.getItem('customBeers') || '[]'
+      const arr: any[] = JSON.parse(raw)
+      setIsCustom(arr.some(b => b.id === id))
+    } else {
+      setIsCustom(false)
+    }
   }, [isDetail, path])
 
   if (isDetail) {
@@ -37,19 +37,12 @@ export default function NavButton() {
         {isCustom && (
           <Button
             variant="destructive"
-            className="w-[200px] h-[30px] text-sm !text-[#FFF] hover:!text-[#FFF] mr-[10px]"
+            className="w-[200px] h-[30px] text-sm text-white font-medium"
             onClick={handleRemove}
           >
             Remove item
           </Button>
         )}
-        <Button
-          variant="default"
-          className="w-[200px] h-[30px] text-sm"
-          onClick={() => router.push('/')}
-        >
-          Back
-        </Button>
       </div>
     )
   }
@@ -59,7 +52,7 @@ export default function NavButton() {
       <Link href={isAddBeer ? '/' : '/add-beer'}>
         <Button
           variant="default"
-          className="w-[200px] h-[30px] text-sm !text-white border-gray-300 hover:bg-gray-100 hover:!text-white focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+          className="w-[200px] h-[50px] text-sm bg-primary text-[#FFF] hover:opacity-90 dark:bg-primary dark:text-[#000] dark:hover:bg-primary"
         >
           {isAddBeer ? 'Back' : 'Add new Beer'}
         </Button>

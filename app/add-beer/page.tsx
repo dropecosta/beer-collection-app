@@ -194,7 +194,13 @@ export default function AddBeerPage() {
           )}
         />
 
-        <Button type="submit" className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm font-medium white border-gray-300 hover:bg-gray cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center justify-center">
+        <Button 
+          type="submit" 
+          // className="w-[200px] border bg-[--color-background] h-[50px] mt-[50px] mb-[40px] text-sm font-medium white border-[--color-border] hover:bg-[--color-background] cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 flex items-center justify-center"
+
+          className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm bg-primary text-[#FFF] hover:opacity-90 dark:bg-primary dark:text-[#000]"
+
+          >
           Add Beer
         </Button>
       </form>

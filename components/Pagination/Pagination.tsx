@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function Pagination({ page }: { page: number }) {
   return (
-    <nav className="flex justify-center pb-[40px] pt-[30px]">
+    <nav className="flex justify-center pb-[30px] pt-[60px]">
       <ul className="inline-flex items-center gap-[20px] list-none text-gray-600 font-semibold">
         <li>
           {page > 1 ? (
