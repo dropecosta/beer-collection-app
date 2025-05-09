@@ -6,6 +6,7 @@ export default async function BeerDetailPage({
 }: {
   params: { id: string }
 }) {
-  const beer = await getBeerById(params.id)
-  return <BeerDetail beer={beer} />
+  const { id } = await params;
+  const beer = await getBeerById(id);
+  return <BeerDetail beer={beer} />;
 }
