@@ -75,9 +75,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ---
 
 ## 📐 UI / UX
-
-![Home Page](![image](https://github.com/user-attachments/assets/af0d67d9-fc51-464a-8046-2a801ae7f2de))
-![Home Page - Darkmode](![image](https://github.com/user-attachments/assets/a59ba383-102f-4bc1-9916-3d7493306486))
+![Home Page](https://github.com/user-attachments/assets/a123f732-b508-4ba5-b84f-4438a8897ccb)
+![Home Page - Darkmode](https://github.com/user-attachments/assets/a8f759cb-98f2-40e7-bd2c-6ffaebe73bb1)
 *Home page with sorting and dark mode*  
 
 ![Detail View](https://github.com/user-attachments/assets/c1ae1993-6494-4176-9119-36904cf142ae)
