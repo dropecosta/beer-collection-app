@@ -134,7 +134,7 @@ export default function AddBeerPage() {
 
         <Button
           type="submit"
-          className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm bg-primary text-[#FFF] hover:bg-primary/90 dark:bg-primary dark:text-black"
+          className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm bg-primary text-[#FFF] hover:bg-primary/90 dark:bg-primary dark:text-[#000]"
         >
           Add Beer
         </Button>
