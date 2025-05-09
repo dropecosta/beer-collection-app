@@ -1,12 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
+import { Beer } from '@/types/beer'
 
 export default function AddBeerPage() {
+  const router = useRouter()
   const [form, setForm] = useState({
     name: '',
     type: '',
@@ -24,7 +27,26 @@ export default function AddBeerPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', form)
+    const id = Date.now().toString()
+    const newBeer: Beer = {
+      id,
+      name: form.name,
+      type: form.type,
+      year: parseInt(form.year) || new Date().getFullYear(),
+      image: '/fallback.webp',
+      notes: form.notes,
+      abv: parseFloat(form.abv) || 0,
+      ibu: parseFloat(form.ibu) || 0,
+      ebc: parseFloat(form.ebc) || 0,
+      custom: true,
+    }
+
+    const raw = localStorage.getItem('customBeers') || '[]'
+    const arr: Beer[] = JSON.parse(raw)
+    arr.unshift(newBeer)
+    localStorage.setItem('customBeers', JSON.stringify(arr))
+
+    router.push('/')
   }
 
   return (
@@ -112,7 +134,7 @@ export default function AddBeerPage() {
 
         <Button
           type="submit"
-          className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm bg-primary text-white hover:bg-primary/90 dark:bg-primary dark:text-black"
+          className="w-[200px] h-[50px] mt-[50px] mb-[40px] text-sm bg-primary text-[#FFF] hover:bg-primary/90 dark:bg-primary dark:text-black"
         >
           Add Beer
         </Button>
